@@ -1,14 +1,64 @@
-# Program # 2: Car Class
-# Write a class named Car that has the following data attributes:
+#Timothy Foster, 3/26/35, Car Class Program
 
-# __year_model (for the car's year model)
-# __make (for the make of the car)
-# __speed (for the car's current speed)
-# The Car class should have an __init__ method that accepts the car's year model and make as arguments.  These values should be assigned to the object's __year_model and __make data attributes.  It should also assign 0 to the __speed data attribute.
+#Define the Car class.
+class Car:
 
-# The class should also have the following methods:
+    #Initialize the class with the year_model, make, and speed data attributes.
+    def __init__ (self, year_model, make, speed):
+        self.__year_model = year_model
+        self.__make = make
+        self.__speed = speed
 
-# The accelerate method should add 5 to the speed data attribute each time it it called.
-# The brake method should subtract 5 from the speed data attribute each time it is called.
-# The get_speed method should return the current speed.
-# Next, design a program that creates a Car object then calls the accelerate method five times.  After each call to the accelerate method, get the current speed of the car and display it.  The call the brake method.  After each call to the brake method, get the current speed of the car and display it.
+    #Define the sets for the class.
+
+    def set_year_model(self, year_model):
+        self.__year_model = year_model
+
+    def set_make(self, make):
+        self.__make = make
+
+    def set_speed(self, speed):
+        self.__speed = 0
+
+    #Define the accelerate and brake methods.
+    def accelerate(self):
+        self.__speed = self.__speed + 5
+
+    def brake(self):
+        self.__speed = self.__speed - 5
+
+    #Define the gets for the class.
+
+    def get_year_model(self):
+        return self.__year_model
+
+    def get_make(self):
+        return self.__make
+
+    def get_speed(self):
+        return self.__speed
+
+#Define the function.
+def speed_up_and_brake():
+    #Define an object of the class.
+    vehicle = Car("2015 Soul", "Kia", 0)
+
+    #Use a for loop to call the accelerate method, get the speed, and print the results five times.
+    for counter in range(5):
+        vehicle.accelerate()
+        current_speed = vehicle.get_speed()
+        print(current_speed)
+
+    #Use a for loop to call the brake method, get the speed, and print the results five times.
+    for counter in range(5):
+        vehicle.brake()
+        current_speed = vehicle.get_speed()
+        print(current_speed)
+
+#Call the above function.
+if __name__ == "__main__":
+    speed_up_and_brake()
+
+
+
+
